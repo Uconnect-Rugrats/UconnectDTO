@@ -30,7 +30,7 @@ public class PaisDTO {
     }
 
     public PaisDTO setNombre(String nombre) {
-        this.nombre = UtilText.getDefault(nombre);
+        this.nombre = UtilText.applyTrim(nombre);
         return this;
     }
 
