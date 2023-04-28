@@ -13,7 +13,7 @@ public class ComentarioDTO {
     private PublicacionDTO publicacion;
     private ComentarioDTO comentarioPadre;
     private LocalDateTime fechaPublicacion;
-    private ParticipanteGrupo autor;
+    private ParticipanteGrupoDTO autor;
     private String contenido;
     private EstadoDTO estado;
 
@@ -23,12 +23,12 @@ public class ComentarioDTO {
         setPublicacion(PublicacionDTO.create());
         setComentarioPadre(null); // PROBLEMA
         setFechaPublicacion(UtilDate.getDefaultValue());
-        setAutor(ParticipanteGrupo.create());
+        setAutor(ParticipanteGrupoDTO.create());
         setContenido(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
     }
 
-    public ComentarioDTO(final UUID identificador, final PublicacionDTO publicacion,final ComentarioDTO comentarioPadre, final LocalDateTime fechaPublicacion, final ParticipanteGrupo autor, final String contenido,final EstadoDTO estado) {
+    public ComentarioDTO(final UUID identificador, final PublicacionDTO publicacion, final ComentarioDTO comentarioPadre, final LocalDateTime fechaPublicacion, final ParticipanteGrupoDTO autor, final String contenido, final EstadoDTO estado) {
         super();
         setIdentificador(identificador);
         setPublicacion(publicacion);
@@ -59,8 +59,8 @@ public class ComentarioDTO {
         return this;
     }
 
-    public ComentarioDTO setAutor(ParticipanteGrupo autor) {
-        this.autor = UtilObject.getDefault(autor, ParticipanteGrupo.create());
+    public ComentarioDTO setAutor(ParticipanteGrupoDTO autor) {
+        this.autor = UtilObject.getDefault(autor, ParticipanteGrupoDTO.create());
         return this;
     }
 
@@ -90,7 +90,7 @@ public class ComentarioDTO {
         return fechaPublicacion;
     }
 
-    public ParticipanteGrupo getAutor() {
+    public ParticipanteGrupoDTO getAutor() {
         return autor;
     }
 

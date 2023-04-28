@@ -6,14 +6,14 @@ import uco.doo.rugrats.uconnect.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class ParticipanteGrupo {
+public class ParticipanteGrupoDTO {
     private UUID identificador;
     private ParticipanteDTO participante;
     private GrupoDTO grupo;
     private Boolean puedePublicar;
     private EstadoDTO estado;
 
-    public ParticipanteGrupo() {
+    public ParticipanteGrupoDTO() {
         setIdentificador(UtilUUID.getDefaultValue());
         setParticipante(ParticipanteDTO.create());
         setPuedePublicar(UtilBoolean.getDefaultValue());
@@ -21,7 +21,7 @@ public class ParticipanteGrupo {
         setEstado(EstadoDTO.create());
     }
 
-    public ParticipanteGrupo(final UUID identificador, final ParticipanteDTO participante,final Boolean puedePublicar, final GrupoDTO grupo, final EstadoDTO estado) {
+    public ParticipanteGrupoDTO(final UUID identificador, final ParticipanteDTO participante, final Boolean puedePublicar, final GrupoDTO grupo, final EstadoDTO estado) {
         super();
         setIdentificador(identificador);
         setParticipante(participante);
@@ -30,27 +30,27 @@ public class ParticipanteGrupo {
         setEstado(estado);
     }
 
-    public ParticipanteGrupo setPuedePublicar(Boolean puedePublicar) {
+    public ParticipanteGrupoDTO setPuedePublicar(Boolean puedePublicar) {
         this.puedePublicar = UtilBoolean.getDefault(puedePublicar);
         return this;
     }
 
-    public ParticipanteGrupo setIdentificador(UUID identificador) {
+    public ParticipanteGrupoDTO setIdentificador(UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public ParticipanteGrupo setParticipante(ParticipanteDTO participante) {
+    public ParticipanteGrupoDTO setParticipante(ParticipanteDTO participante) {
         this.participante = UtilObject.getDefault(participante, ParticipanteDTO.create());
         return this;
     }
 
-    public ParticipanteGrupo setGrupo(GrupoDTO grupo) {
+    public ParticipanteGrupoDTO setGrupo(GrupoDTO grupo) {
         this.grupo = UtilObject.getDefault(grupo, GrupoDTO.create());
         return this;
     }
 
-    public ParticipanteGrupo setEstado(EstadoDTO estado) {
+    public ParticipanteGrupoDTO setEstado(EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }
@@ -75,7 +75,7 @@ public class ParticipanteGrupo {
         return estado;
     }
 
-    public static ParticipanteGrupo create(){
-        return new ParticipanteGrupo();
+    public static ParticipanteGrupoDTO create(){
+        return new ParticipanteGrupoDTO();
     }
 }

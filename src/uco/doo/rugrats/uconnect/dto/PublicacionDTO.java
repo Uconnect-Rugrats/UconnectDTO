@@ -11,7 +11,7 @@ import java.util.UUID;
 public class PublicacionDTO {
     private UUID identificador;
     private GrupoDTO grupo;
-    private ParticipanteGrupo autor;
+    private ParticipanteGrupoDTO autor;
     private LocalDateTime fechaPublicacion;
     private String titulo;
     private String contenido;
@@ -21,14 +21,14 @@ public class PublicacionDTO {
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setGrupo(GrupoDTO.create());
-        setAutor(ParticipanteGrupo.create());
+        setAutor(ParticipanteGrupoDTO.create());
         setFechaPublicacion(UtilDate.getDefaultValue());
         setTitulo(UtilText.getDefaultValue());
         setContenido(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
     }
 
-    public PublicacionDTO(final UUID identificador, final GrupoDTO grupo, final ParticipanteGrupo autor, final LocalDateTime fechaPublicacion, final String titulo, final String contenido, final EstadoDTO estado) {
+    public PublicacionDTO(final UUID identificador, final GrupoDTO grupo, final ParticipanteGrupoDTO autor, final LocalDateTime fechaPublicacion, final String titulo, final String contenido, final EstadoDTO estado) {
         super();
         setIdentificador(identificador);
         setGrupo(grupo);
@@ -49,8 +49,8 @@ public class PublicacionDTO {
         return this;
     }
 
-    public PublicacionDTO setAutor(ParticipanteGrupo autor) {
-        this.autor = UtilObject.getDefault(autor, ParticipanteGrupo.create());
+    public PublicacionDTO setAutor(ParticipanteGrupoDTO autor) {
+        this.autor = UtilObject.getDefault(autor, ParticipanteGrupoDTO.create());
         return this;
     }
 
@@ -82,7 +82,7 @@ public class PublicacionDTO {
         return grupo;
     }
 
-    public ParticipanteGrupo getAutor() {
+    public ParticipanteGrupoDTO getAutor() {
         return autor;
     }
 
