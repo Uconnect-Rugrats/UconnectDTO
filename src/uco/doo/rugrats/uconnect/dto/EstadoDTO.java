@@ -24,7 +24,7 @@ public final class EstadoDTO {
     }
 
 
-    public EstadoDTO(final UUID identificador, final String nombre, final TipoEstadoDTO tipoEstado) {
+    public EstadoDTO(final UUID identificador, final String nombre, final String descripcion,final TipoEstadoDTO tipoEstado) {
         super();
         setIdentificador(identificador);
         setNombre(nombre);
