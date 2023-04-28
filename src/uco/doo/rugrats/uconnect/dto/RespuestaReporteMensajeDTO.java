@@ -11,7 +11,7 @@ import java.util.UUID;
 public class RespuestaReporteMensajeDTO {
     private UUID identificador;
     private LocalDateTime fechaRespuesta;
-    private RespuestaReporteMensajeDTO reporte;
+    private ReporteMensajeDTO reporte;
     private EstadoDTO estado;
     private String explicacionVeredicto;
     private EstructuraAdministradorEstructuraDTO administrador;
@@ -20,13 +20,13 @@ public class RespuestaReporteMensajeDTO {
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setFechaRespuesta(UtilDate.getDefaultValue());
-        setReporte(RespuestaReporteMensajeDTO.create());
+        setReporte(ReporteMensajeDTO.create());
         setEstado(EstadoDTO.create());
         setExplicacionVeredicto(UtilText.getDefaultValue());
         setAdministrador(EstructuraAdministradorEstructuraDTO.create());
     }
 
-    public RespuestaReporteMensajeDTO(final UUID identificador, final LocalDateTime fechaRespuesta, final RespuestaReporteMensajeDTO reporte, final EstadoDTO estado, final String explicacionVeredicto, final EstructuraAdministradorEstructuraDTO administrador) {
+    public RespuestaReporteMensajeDTO(final UUID identificador, final LocalDateTime fechaRespuesta, final ReporteMensajeDTO reporte, final EstadoDTO estado, final String explicacionVeredicto, final EstructuraAdministradorEstructuraDTO administrador) {
         super();
         setIdentificador(identificador);
         setFechaRespuesta(fechaRespuesta);
@@ -46,8 +46,8 @@ public class RespuestaReporteMensajeDTO {
         return this;
     }
 
-    public RespuestaReporteMensajeDTO setReporte(RespuestaReporteMensajeDTO reporte) {
-        this.reporte = UtilObject.getDefault(reporte, RespuestaReporteMensajeDTO.create());
+    public RespuestaReporteMensajeDTO setReporte(ReporteMensajeDTO reporte) {
+        this.reporte = UtilObject.getDefault(reporte, ReporteMensajeDTO.create());
         return this;
     }
 
@@ -74,7 +74,7 @@ public class RespuestaReporteMensajeDTO {
         return fechaRespuesta;
     }
 
-    public RespuestaReporteMensajeDTO getReporte() {
+    public ReporteMensajeDTO getReporte() {
         return reporte;
     }
 
