@@ -89,7 +89,7 @@ public class HistorialLecturaDTO {
         return estado;
     }
 
-    public static HistorialChatGrupoDTO create(){
-        return new HistorialChatGrupoDTO();
+    public static HistorialLecturaDTO create(){
+        return new HistorialLecturaDTO();
     }
 }

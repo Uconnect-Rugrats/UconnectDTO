@@ -23,6 +23,7 @@ public class AgendaDTO {
         setEstado(EstadoDTO.create());
     }
 
+
     public AgendaDTO(final UUID identificador,final GrupoDTO grupo, final LocalDateTime fechaInicio, final LocalDateTime fechaFin, final EstadoDTO estado) {
         super();
         setIdentificador(identificador);

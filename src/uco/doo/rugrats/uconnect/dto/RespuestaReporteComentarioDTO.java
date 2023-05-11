@@ -11,7 +11,7 @@ import java.util.UUID;
 public class RespuestaReporteComentarioDTO {
     private UUID identificador;
     private LocalDateTime fechaRespuesta;
-    private RespuestaReporteComentarioDTO reporte;
+    private ReporteComentarioDTO reporte;
     private EstadoDTO estado;
     private String explicacionVeredicto;
     private EstructuraAdministradorEstructuraDTO administrador;
@@ -20,13 +20,13 @@ public class RespuestaReporteComentarioDTO {
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setFechaRespuesta(UtilDate.getDefaultValue());
-        setReporte(RespuestaReporteComentarioDTO.create());
+        setReporte(ReporteComentarioDTO.create());
         setEstado(EstadoDTO.create());
         setExplicacionVeredicto(UtilText.getDefaultValue());
         setAdministrador(EstructuraAdministradorEstructuraDTO.create());
     }
 
-    public RespuestaReporteComentarioDTO(final UUID identificador, final LocalDateTime fechaRespuesta, final RespuestaReporteComentarioDTO reporte, final EstadoDTO estado, final String explicacionVeredicto, final EstructuraAdministradorEstructuraDTO administrador) {
+    public RespuestaReporteComentarioDTO(final UUID identificador, final LocalDateTime fechaRespuesta, final ReporteComentarioDTO reporte, final EstadoDTO estado, final String explicacionVeredicto, final EstructuraAdministradorEstructuraDTO administrador) {
         super();
         setIdentificador(identificador);
         setFechaRespuesta(fechaRespuesta);
@@ -46,8 +46,8 @@ public class RespuestaReporteComentarioDTO {
         return this;
     }
 
-    public RespuestaReporteComentarioDTO setReporte(RespuestaReporteComentarioDTO reporte) {
-        this.reporte = UtilObject.getDefault(reporte, RespuestaReporteComentarioDTO.create());
+    public RespuestaReporteComentarioDTO setReporte(ReporteComentarioDTO reporte) {
+        this.reporte = UtilObject.getDefault(reporte, ReporteComentarioDTO.create());
         return this;
     }
 
@@ -74,7 +74,7 @@ public class RespuestaReporteComentarioDTO {
         return fechaRespuesta;
     }
 
-    public RespuestaReporteComentarioDTO getReporte() {
+    public ReporteComentarioDTO getReporte() {
         return reporte;
     }
 

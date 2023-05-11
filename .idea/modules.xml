@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../UconnectBusiness/UconnectBusiness.iml" filepath="$PROJECT_DIR$/../UconnectBusiness/UconnectBusiness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../UconnectCrosscutting/UconnectCrosscutting.iml" filepath="$PROJECT_DIR$/../UconnectCrosscutting/UconnectCrosscutting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UconnectDTO1.iml" filepath="$PROJECT_DIR$/UconnectDTO1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../UconnectData/UconnectData.iml" filepath="$PROJECT_DIR$/../UconnectData/UconnectData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../UconnectEntities/UconnectEntities.iml" filepath="$PROJECT_DIR$/../UconnectEntities/UconnectEntities.iml" />
+    </modules>
+  </component>
+</project>

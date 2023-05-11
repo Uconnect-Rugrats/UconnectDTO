@@ -54,7 +54,7 @@ public class OrganizacionAdministradorOrganizacionDTO {
         return administrador;
     }
 
-    public OrganizacionDTO getEstructura() {
+    public OrganizacionDTO getOrganizacion() {
         return organizacion;
     }
 
