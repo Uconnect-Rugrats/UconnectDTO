@@ -1,6 +1,5 @@
 package uco.doo.rugrats.uconnect.dto;
 
-import uco.doo.rugrats.uconnect.utils.UtilDate;
 import uco.doo.rugrats.uconnect.utils.UtilObject;
 import uco.doo.rugrats.uconnect.utils.UtilUUID;
 

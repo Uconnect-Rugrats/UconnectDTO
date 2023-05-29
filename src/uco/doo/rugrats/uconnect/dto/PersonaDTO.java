@@ -60,7 +60,7 @@ public class PersonaDTO {
     }
 
     public PersonaDTO setNumeroIdentificacion(String numeroIdentificacion) {
-        this.numeroIdentificacion = UtilText.numericIsValid(UtilText.applyTrim(numeroIdentificacion)) ? UtilText.applyTrim(numeroIdentificacion) : UtilText.getDefaultNumeric();
+        this.numeroIdentificacion = UtilText.getUtilText().numericIsValid(UtilText.applyTrim(numeroIdentificacion)) ? UtilText.applyTrim(numeroIdentificacion) : UtilText.getDefaultNumeric();
         return this;
     }
 
@@ -85,7 +85,7 @@ public class PersonaDTO {
     }
 
     public PersonaDTO setCorreo(String correo) {
-        this.correo = UtilText.emailIsvalid(UtilText.applyTrim(correo)) ? UtilText.applyTrim(correo) : UtilText.getDefaultEmailAdress();
+        this.correo = UtilText.getUtilText().emailIsvalid(UtilText.applyTrim(correo)) ? UtilText.applyTrim(correo) : UtilText.getDefaultEmailAdress();
         return this;
     }
 
@@ -95,7 +95,7 @@ public class PersonaDTO {
     }
 
     public PersonaDTO setNumeroTelefono(String numeroTelefono) {
-        this.numeroTelefono = UtilText.numericIsValid(UtilText.applyTrim(numeroTelefono)) ? UtilText.applyTrim(numeroTelefono) : UtilText.getDefaultNumeric();
+        this.numeroTelefono = UtilText.getUtilText().numericIsValid(UtilText.applyTrim(numeroTelefono)) ? UtilText.applyTrim(numeroTelefono) : UtilText.getDefaultNumeric();
         return this;
     }
 

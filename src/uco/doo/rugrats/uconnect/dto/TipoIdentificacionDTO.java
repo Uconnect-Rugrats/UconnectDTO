@@ -35,7 +35,7 @@ public class TipoIdentificacionDTO {
     }
 
     public TipoIdentificacionDTO setIndicador(String indicador) {
-        this.indicador = UtilText.numericIsValid(UtilText.applyTrim(indicador)) ? UtilText.applyTrim(indicador) : UtilText.getDefaultNumeric();
+        this.indicador = UtilText.getUtilText().numericIsValid(UtilText.applyTrim(indicador)) ? UtilText.applyTrim(indicador) : UtilText.getDefaultNumeric();
         return this;
     }
 

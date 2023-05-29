@@ -1,5 +1,6 @@
 package uco.doo.rugrats.uconnect.dto;
 
+import uco.doo.rugrats.uconnect.utils.UtilBoolean;
 import uco.doo.rugrats.uconnect.utils.UtilDate;
 import uco.doo.rugrats.uconnect.utils.UtilObject;
 import uco.doo.rugrats.uconnect.utils.UtilText;
@@ -16,19 +17,25 @@ public class ComentarioDTO {
     private ParticipanteGrupoDTO autor;
     private String contenido;
     private EstadoDTO estado;
+    private boolean tienePadre;
+    private static final String UUID_PADRE = "";
+
+    private static final ComentarioDTO PADRE = new ComentarioDTO(UtilUUID.generateUUIDFromString(UUID_PADRE),PublicacionDTO.create(),null,UtilDate.getDefaultValue(),ParticipanteGrupoDTO.create(),UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue());
 
     public ComentarioDTO() {
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setPublicacion(PublicacionDTO.create());
-        setComentarioPadre(null); // PROBLEMA
+        setComentarioPadre(PADRE); 
         setFechaPublicacion(UtilDate.getDefaultValue());
         setAutor(ParticipanteGrupoDTO.create());
         setContenido(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
+        setTienePadre(UtilBoolean.getDefaultValue());
+        
     }
 
-    public ComentarioDTO(final UUID identificador, final PublicacionDTO publicacion, final ComentarioDTO comentarioPadre, final LocalDateTime fechaPublicacion, final ParticipanteGrupoDTO autor, final String contenido, final EstadoDTO estado) {
+    public ComentarioDTO(final UUID identificador, final PublicacionDTO publicacion, final ComentarioDTO comentarioPadre, final LocalDateTime fechaPublicacion, final ParticipanteGrupoDTO autor, final String contenido, final EstadoDTO estado,boolean tienePadre) {
         super();
         setIdentificador(identificador);
         setPublicacion(publicacion);
@@ -37,9 +44,20 @@ public class ComentarioDTO {
         setAutor(autor);
         setContenido(contenido);
         setEstado(estado);
+        setTienePadre(tienePadre);
     }
+    
+    
+    public final boolean isTienePadre() {
+		return tienePadre;
+	}
 
-    public ComentarioDTO setIdentificador(UUID identificador) {
+	public final ComentarioDTO setTienePadre(boolean tienePadre) {
+		this.tienePadre = UtilBoolean.getDefault(tienePadre);
+		return this;
+	}
+
+	public ComentarioDTO setIdentificador(UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
@@ -50,8 +68,12 @@ public class ComentarioDTO {
     }
 
     public ComentarioDTO setComentarioPadre(ComentarioDTO comentarioPadre) {
-        this.comentarioPadre = UtilObject.getDefault(comentarioPadre, ComentarioDTO.create());
-        return this;
+    	if(isTienePadre()) {
+            this.comentarioPadre = UtilObject.getDefault(comentarioPadre, ComentarioDTO.create());
+    	}else {
+            this.comentarioPadre = PADRE;
+    	}
+    	return this;
     }
 
     public ComentarioDTO setFechaPublicacion(LocalDateTime fechaPublicacion) {
