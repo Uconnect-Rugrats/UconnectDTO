@@ -17,10 +17,11 @@ public class ComentarioDTO {
     private ParticipanteGrupoDTO autor;
     private String contenido;
     private EstadoDTO estado;
+    private boolean estaEstadoRealActivo;
     private boolean tienePadre;
     private static final String UUID_PADRE = "";
 
-    private static final ComentarioDTO PADRE = new ComentarioDTO(UtilUUID.generateUUIDFromString(UUID_PADRE),PublicacionDTO.create(),null,UtilDate.getDefaultValue(),ParticipanteGrupoDTO.create(),UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue());
+    private static final ComentarioDTO PADRE = new ComentarioDTO(UtilUUID.generateUUIDFromString(UUID_PADRE),PublicacionDTO.create(),null,UtilDate.getDefaultValue(),ParticipanteGrupoDTO.create(),UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue(),UtilBoolean.getDefaultValue());
 
     public ComentarioDTO() {
         super();
@@ -32,10 +33,11 @@ public class ComentarioDTO {
         setContenido(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
         setTienePadre(UtilBoolean.getDefaultValue());
+        setEstaEstadoRealActivo(UtilBoolean.getDefaultValue());
         
     }
 
-    public ComentarioDTO(final UUID identificador, final PublicacionDTO publicacion, final ComentarioDTO comentarioPadre, final LocalDateTime fechaPublicacion, final ParticipanteGrupoDTO autor, final String contenido, final EstadoDTO estado,boolean tienePadre) {
+    public ComentarioDTO(final UUID identificador, final PublicacionDTO publicacion, final ComentarioDTO comentarioPadre, final LocalDateTime fechaPublicacion, final ParticipanteGrupoDTO autor, final String contenido, final EstadoDTO estado,boolean tienePadre,boolean estaEstadoRealActivo) {
         super();
         setIdentificador(identificador);
         setPublicacion(publicacion);
@@ -45,6 +47,7 @@ public class ComentarioDTO {
         setContenido(contenido);
         setEstado(estado);
         setTienePadre(tienePadre);
+        setEstaEstadoRealActivo(estaEstadoRealActivo);
     }
     
     
@@ -127,4 +130,13 @@ public class ComentarioDTO {
     public static final ComentarioDTO create(){
         return new ComentarioDTO();
     }
+
+	public boolean isEstaEstadoRealActivo() {
+		return estaEstadoRealActivo;
+	}
+
+	public ComentarioDTO setEstaEstadoRealActivo(boolean estaEstadoRealActivo) {
+		this.estaEstadoRealActivo = estaEstadoRealActivo;
+		return this;
+	}
 }

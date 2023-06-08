@@ -1,5 +1,6 @@
 package uco.doo.rugrats.uconnect.dto;
 
+import uco.doo.rugrats.uconnect.utils.UtilBoolean;
 import uco.doo.rugrats.uconnect.utils.UtilObject;
 import uco.doo.rugrats.uconnect.utils.UtilText;
 import uco.doo.rugrats.uconnect.utils.UtilUUID;
@@ -11,6 +12,7 @@ public class GrupoDTO {
     private EstructuraDTO estructura;
     private String nombre;
     private EstadoDTO estado;
+    private boolean estaEstadoRealActivo;
 
     public GrupoDTO() {
         super();
@@ -18,14 +20,16 @@ public class GrupoDTO {
         setEstructura(EstructuraDTO.create());
         setNombre(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
+        setEstaEstadoRealActivo(UtilBoolean.getDefaultValue());
     }
 
-    public GrupoDTO(final UUID identificador, final EstructuraDTO estructura, final String nombre, final EstadoDTO estado) {
+    public GrupoDTO(final UUID identificador, final EstructuraDTO estructura, final String nombre, final EstadoDTO estado,final boolean estaEstadoRealActivo) {
         super();
         setIdentificador(identificador);
         setEstructura(estructura);
         setNombre(nombre);
         setEstado(estado);
+        setEstaEstadoRealActivo(estaEstadoRealActivo);
     }
 
     public GrupoDTO setIdentificador(UUID identificador) {
@@ -67,4 +71,13 @@ public class GrupoDTO {
     public static GrupoDTO create(){
         return new GrupoDTO();
     }
+
+	public boolean isEstaEstadoRealActivo() {
+		return estaEstadoRealActivo;
+	}
+
+	public GrupoDTO setEstaEstadoRealActivo(boolean estaEstadoRealActivo) {
+		this.estaEstadoRealActivo = estaEstadoRealActivo;
+		return this;
+	}
 }

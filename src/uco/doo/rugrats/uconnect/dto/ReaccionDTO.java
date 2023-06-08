@@ -1,5 +1,6 @@
 package uco.doo.rugrats.uconnect.dto;
 
+import uco.doo.rugrats.uconnect.utils.UtilBoolean;
 import uco.doo.rugrats.uconnect.utils.UtilDate;
 import uco.doo.rugrats.uconnect.utils.UtilObject;
 import uco.doo.rugrats.uconnect.utils.UtilUUID;
@@ -14,6 +15,7 @@ public class ReaccionDTO {
     private LocalDateTime fechaReaccion;
     private TipoReaccionDTO tipo;
     private EstadoDTO estado;
+    private boolean estaEstadoRealActivo;
 
     public ReaccionDTO() {
         super();
@@ -23,9 +25,10 @@ public class ReaccionDTO {
         setFechaReaccion(UtilDate.getDefaultValue());
         setTipo(TipoReaccionDTO.create());
         setEstado(EstadoDTO.create());
+        setEstaEstadoRealActivo(UtilBoolean.getDefaultValue());
     }
 
-    public ReaccionDTO(final UUID identificador, final PublicacionDTO publicacion, final ParticipanteGrupoDTO autor, final LocalDateTime fechaReaccion, final TipoReaccionDTO tipo,final EstadoDTO estado) {
+    public ReaccionDTO(final UUID identificador, final PublicacionDTO publicacion, final ParticipanteGrupoDTO autor, final LocalDateTime fechaReaccion, final TipoReaccionDTO tipo,final EstadoDTO estado, boolean estaEstadoRealActivo) {
         super();
         setIdentificador(identificador);
         setPublicacion(publicacion);
@@ -33,6 +36,7 @@ public class ReaccionDTO {
         setFechaReaccion(fechaReaccion);
         setTipo(tipo);
         setEstado(estado);
+        setEstaEstadoRealActivo(estaEstadoRealActivo);
     }
 
     public ReaccionDTO setIdentificador(UUID identificador) {
@@ -92,4 +96,13 @@ public class ReaccionDTO {
     public static final ReaccionDTO create(){
         return new ReaccionDTO();
     }
+
+	public boolean isEstaEstadoRealActivo() {
+		return estaEstadoRealActivo;
+	}
+
+	public ReaccionDTO setEstaEstadoRealActivo(boolean estaEstadoRealActivo) {
+		this.estaEstadoRealActivo = estaEstadoRealActivo;
+		return this;
+	}
 }

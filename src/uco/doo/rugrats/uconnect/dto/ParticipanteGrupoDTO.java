@@ -12,6 +12,7 @@ public class ParticipanteGrupoDTO {
     private GrupoDTO grupo;
     private Boolean puedePublicar;
     private EstadoDTO estado;
+    private boolean estaEstadoRealActivo;
 
     public ParticipanteGrupoDTO() {
         setIdentificador(UtilUUID.getDefaultValue());
@@ -19,15 +20,17 @@ public class ParticipanteGrupoDTO {
         setPuedePublicar(UtilBoolean.getDefaultValue());
         setGrupo(GrupoDTO.create());
         setEstado(EstadoDTO.create());
+        setEstaEstadoRealActivo(UtilBoolean.getDefaultValue());
     }
 
-    public ParticipanteGrupoDTO(final UUID identificador, final ParticipanteDTO participante, final Boolean puedePublicar, final GrupoDTO grupo, final EstadoDTO estado) {
+    public ParticipanteGrupoDTO(final UUID identificador, final ParticipanteDTO participante, final Boolean puedePublicar, final GrupoDTO grupo, final EstadoDTO estado,boolean estaEstadoRealActivo) {
         super();
         setIdentificador(identificador);
         setParticipante(participante);
         setPuedePublicar(puedePublicar);
         setGrupo(grupo);
         setEstado(estado);
+        setEstaEstadoRealActivo(estaEstadoRealActivo);
     }
 
     public ParticipanteGrupoDTO setPuedePublicar(Boolean puedePublicar) {
@@ -78,4 +81,13 @@ public class ParticipanteGrupoDTO {
     public static ParticipanteGrupoDTO create(){
         return new ParticipanteGrupoDTO();
     }
+
+	public boolean isEstaEstadoRealActivo() {
+		return estaEstadoRealActivo;
+	}
+
+	public ParticipanteGrupoDTO setEstaEstadoRealActivo(boolean estaEstadoRealActivo) {
+		this.estaEstadoRealActivo = estaEstadoRealActivo;
+		return this;
+	}
 }

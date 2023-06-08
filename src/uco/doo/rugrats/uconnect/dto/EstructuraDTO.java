@@ -14,11 +14,12 @@ public class EstructuraDTO {
     private String nombre;
     private EstadoDTO estado;
     private boolean tienePadre;
+    private boolean estaEstadoRealActivo;
     private static final String UUID_PADRE = "";
 
-    private static final EstructuraDTO PADRE = new EstructuraDTO(UtilUUID.generateUUIDFromString(UUID_PADRE),OrganizacionDTO.create(),null,UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue());
+    private static final EstructuraDTO PADRE = new EstructuraDTO(UtilUUID.generateUUIDFromString(UUID_PADRE),OrganizacionDTO.create(),null,UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue(),UtilBoolean.getDefaultValue());
 
-    public EstructuraDTO(final UUID identificador, final OrganizacionDTO organizacion, final EstructuraDTO estructuraPadre, final String nombre, final EstadoDTO estado,boolean tienePadre) {
+    public EstructuraDTO(final UUID identificador, final OrganizacionDTO organizacion, final EstructuraDTO estructuraPadre, final String nombre, final EstadoDTO estado,boolean tienePadre, boolean estaEstadoRealActivo) {
         super();
         setIdentificador(identificador);
         setOrganizacion(organizacion);
@@ -26,6 +27,7 @@ public class EstructuraDTO {
         setNombre(nombre);
         setEstado(estado);
         setTienePadre(tienePadre);
+        setEstaEstadoRealActivo(estaEstadoRealActivo);
     }
 
     public EstructuraDTO() {
@@ -36,6 +38,7 @@ public class EstructuraDTO {
         setNombre(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
         setTienePadre(UtilBoolean.getDefaultValue());
+        setEstaEstadoRealActivo(UtilBoolean.getDefaultValue());
 
     }
     
@@ -100,4 +103,13 @@ public class EstructuraDTO {
     public static EstructuraDTO create(){
         return new EstructuraDTO();
     }
+
+	public boolean isEstaEstadoRealActivo() {
+		return estaEstadoRealActivo;
+	}
+
+	public EstructuraDTO setEstaEstadoRealActivo(boolean estaEstadoRealActivo) {
+		this.estaEstadoRealActivo = estaEstadoRealActivo;
+		return this;
+	}
 }

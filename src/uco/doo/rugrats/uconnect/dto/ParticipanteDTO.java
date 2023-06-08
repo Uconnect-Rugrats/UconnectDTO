@@ -1,5 +1,6 @@
 package uco.doo.rugrats.uconnect.dto;
 
+import uco.doo.rugrats.uconnect.utils.UtilBoolean;
 import uco.doo.rugrats.uconnect.utils.UtilObject;
 import uco.doo.rugrats.uconnect.utils.UtilUUID;
 
@@ -9,19 +10,22 @@ public class ParticipanteDTO {
     private UUID identificador;
     private PersonaDTO persona;
     private EstadoDTO estado;
+    private boolean estaEstadoRealActivo;
 
     public ParticipanteDTO(){
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setPersona(PersonaDTO.create());
         setEstado(EstadoDTO.create());
+        setEstaEstadoRealActivo(UtilBoolean.getDefaultValue());
     }
 
-    public ParticipanteDTO(final UUID identificador, final PersonaDTO persona, final EstadoDTO estado){
+    public ParticipanteDTO(final UUID identificador, final PersonaDTO persona, final EstadoDTO estado,final boolean estaEstadoRealActivo){
         super();
         setIdentificador(identificador);
         setPersona(persona);
         setEstado(estado);
+        setEstaEstadoRealActivo(estaEstadoRealActivo);
     }
 
     public ParticipanteDTO setIdentificador(UUID identificador) {
@@ -54,4 +58,13 @@ public class ParticipanteDTO {
     public static ParticipanteDTO create(){
         return new ParticipanteDTO();
     }
+
+	public boolean isEstaEstadoRealActivo() {
+		return estaEstadoRealActivo;
+	}
+
+	public ParticipanteDTO setEstaEstadoRealActivo(boolean estaEstadoRealActivo) {
+		this.estaEstadoRealActivo = estaEstadoRealActivo;
+		return this;
+	}
 }
